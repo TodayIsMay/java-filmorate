@@ -13,9 +13,9 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @EqualsAndHashCode
 public class Film {
-    int id;
-    String name;
-    String description;
-    LocalDate release;
-    Duration duration;
+    private int id;
+    private String name;
+    private String description;
+    private LocalDate release;
+    private Duration duration;
 }

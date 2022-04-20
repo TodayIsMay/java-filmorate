@@ -11,6 +11,7 @@ import java.util.Map;
 
 public class FilmStorage {
     private static final Logger log = LoggerFactory.getLogger(FilmStorage.class);
+    private static final LocalDate FIRST_FILM_RELEASE_DATE = LocalDate.of(1895, 12, 28);
     static Map<Integer, Film> films = new HashMap<>();
 
     public static Map<Integer, Film> getFilms() {
@@ -70,11 +71,11 @@ public class FilmStorage {
      * @return true if everything is ok
      */
     private static boolean isValidFilm(Film film) {
-        if (film.getName() == null | film.getName().isBlank()) {
+        if (film.getName() == null || film.getName().isBlank()) {
             return false;
         } else if (film.getName().length() > 200) {
             return false;
-        } else if (film.getRelease() != null && film.getRelease().isBefore(LocalDate.of(1895, 12, 28))) {
+        } else if (film.getRelease() != null && film.getRelease().isBefore(FIRST_FILM_RELEASE_DATE)) {
             return false;
         } else if (film.getDuration().isNegative()) {
             return false;

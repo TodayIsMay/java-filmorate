@@ -50,6 +50,15 @@ class FilmStorageTest {
     }
 
     @Test
+    public void testThrowExceptionWhenNullName() throws EntityIsAlreadyExistException {
+        FilmStorage.addFilm(film);
+        film.setName(null);
+        IllegalArgumentException exception = Assertions.assertThrows(IllegalArgumentException.class, () ->
+                FilmStorage.updateFilm(0, film));
+        Assertions.assertEquals("Некорректные данные фильма!", exception.getMessage());
+    }
+
+    @Test
     public void testThrowExceptionWhenReleaseIsBeforeTheEdge() throws EntityIsAlreadyExistException {
         FilmStorage.addFilm(film);
         film.setRelease(LocalDate.of(1700, 1, 1));

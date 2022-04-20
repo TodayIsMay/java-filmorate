@@ -20,11 +20,11 @@ public class UserController {
 
     @PutMapping
     public void updateUser(@RequestBody User user) throws IllegalArgumentException, NullPointerException {
-            UserStorage.updateUser(user.getLogin(), user);
+        UserStorage.updateUser(user.getLogin(), user);
     }
 
     @PostMapping
     public void createUser(@RequestBody User user) throws EntityIsAlreadyExistException, IllegalArgumentException {
-            UserStorage.createUser(user);
+        UserStorage.createUser(user);
     }
 }

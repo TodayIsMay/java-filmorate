@@ -31,9 +31,4 @@ public class FilmController {
     public void addFilm(@RequestBody Film film) throws EntityIsAlreadyExistException {
         FilmStorage.addFilm(film);
     }
-
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    private void test() {
-        System.out.println("ljk;ty ,snm 500");
-    }
 }

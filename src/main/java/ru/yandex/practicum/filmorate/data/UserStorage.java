@@ -14,7 +14,7 @@ public class UserStorage {
     private static Map<String, User> users = new HashMap<>();
 
     /**
-     * Creates bew user and puts it in the map
+     * Creates new user and puts it in the map
      * @param user user info, that was get from http-request
      * @throws EntityIsAlreadyExistException if the user is already exists
      * @throws IllegalArgumentException if there is an incorrect user data
