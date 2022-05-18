@@ -10,7 +10,6 @@ import ru.yandex.practicum.filmorate.model.User;
 import ru.yandex.practicum.filmorate.service.UserService;
 
 import java.util.List;
-import java.util.Map;
 import java.util.NoSuchElementException;
 
 @Slf4j
@@ -18,8 +17,8 @@ import java.util.NoSuchElementException;
 @Getter
 @RequestMapping("/users")
 public class UserController {
-    UserStorage userStorage;
-    UserService userService;
+    private final UserStorage userStorage;
+    private final UserService userService;
 
     @Autowired
     public UserController(UserStorage userStorage, UserService userService) {

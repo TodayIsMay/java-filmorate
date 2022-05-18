@@ -1,20 +1,18 @@
 package ru.yandex.practicum.filmorate.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.yandex.practicum.filmorate.data.FilmStorage;
-import ru.yandex.practicum.filmorate.data.InMemoryFilmStorage;
-import ru.yandex.practicum.filmorate.data.InMemoryUserStorage;
 import ru.yandex.practicum.filmorate.exception.EntityIsAlreadyExistException;
-import ru.yandex.practicum.filmorate.exception.InvalidIdException;
 import ru.yandex.practicum.filmorate.model.Film;
 import ru.yandex.practicum.filmorate.service.FilmService;
-import ru.yandex.practicum.filmorate.util.ValidationUtils;
 
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
+@Slf4j
 @RestController
 @RequestMapping("/films")
 public class FilmController {

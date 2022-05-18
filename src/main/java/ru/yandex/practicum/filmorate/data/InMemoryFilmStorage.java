@@ -1,21 +1,17 @@
 package ru.yandex.practicum.filmorate.data;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import ru.yandex.practicum.filmorate.exception.EntityIsAlreadyExistException;
 import ru.yandex.practicum.filmorate.model.Film;
 import ru.yandex.practicum.filmorate.util.ValidationUtils;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Component
+@Slf4j
 public class InMemoryFilmStorage implements FilmStorage{
-    private static final Logger log = LoggerFactory.getLogger(InMemoryFilmStorage.class);
-    private static final LocalDate FIRST_FILM_RELEASE_DATE = LocalDate.of(1895, 12, 28);
-    static Map<Integer, Film> films = new TreeMap<>();
+    private static final Map<Integer, Film> films = new TreeMap<>();
     private int filmId = 0;
 
     public List<Film> getFilms() {

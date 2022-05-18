@@ -1,10 +1,8 @@
 package ru.yandex.practicum.filmorate.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.yandex.practicum.filmorate.data.FilmStorage;
-import ru.yandex.practicum.filmorate.data.InMemoryFilmStorage;
 import ru.yandex.practicum.filmorate.data.UserStorage;
 import ru.yandex.practicum.filmorate.model.Film;
 import ru.yandex.practicum.filmorate.model.User;
@@ -15,10 +13,9 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 public class FilmService {
-    private static final Logger log = LoggerFactory.getLogger(InMemoryFilmStorage.class);
-
     private final FilmStorage filmStorage;
     private final UserStorage userStorage;
 

@@ -1,5 +1,6 @@
 package ru.yandex.practicum.filmorate.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.yandex.practicum.filmorate.data.UserStorage;
@@ -7,11 +8,11 @@ import ru.yandex.practicum.filmorate.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
+@Slf4j
 @Service
 public class UserService {
-    UserStorage userStorage;
+    private final UserStorage userStorage;
 
     @Autowired
     public UserService(UserStorage userStorage) {
@@ -55,7 +56,7 @@ public class UserService {
         List<User> commonFriends = new ArrayList<>();
         for (User userFriend : user.getFriends()) {
             for (User otherUserFriend : otherUser.getFriends()) {
-                if(userFriend.equals(otherUserFriend)) {
+                if (userFriend.equals(otherUserFriend)) {
                     commonFriends.add(userFriend);
                 }
             }

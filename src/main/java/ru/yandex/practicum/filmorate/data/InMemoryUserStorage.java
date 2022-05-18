@@ -1,7 +1,6 @@
 package ru.yandex.practicum.filmorate.data;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import ru.yandex.practicum.filmorate.exception.EntityIsAlreadyExistException;
 import ru.yandex.practicum.filmorate.model.User;
@@ -9,9 +8,9 @@ import ru.yandex.practicum.filmorate.model.User;
 import java.time.LocalDate;
 import java.util.*;
 
+@Slf4j
 @Component
 public class InMemoryUserStorage implements UserStorage{
-    private static final Logger log = LoggerFactory.getLogger(InMemoryFilmStorage.class);
     private static Map<Integer, User> users = new HashMap<>();
     private int id = 0;
 
