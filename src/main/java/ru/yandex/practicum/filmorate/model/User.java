@@ -1,20 +1,22 @@
 package ru.yandex.practicum.filmorate.model;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Builder;
+import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@EqualsAndHashCode
+@Data
+@Builder
 public class User {
-    private int id;
-    private String email;
     private String login;
     private String name;
+    private String email;
     private LocalDate birthday;
+
+    @Builder.Default
+    private int id = 0;
+    @Builder.Default
+    private List<User> friends = new ArrayList<>();
 }

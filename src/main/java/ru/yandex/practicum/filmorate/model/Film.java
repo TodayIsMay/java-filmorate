@@ -1,21 +1,22 @@
 package ru.yandex.practicum.filmorate.model;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.Duration;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@EqualsAndHashCode
+@Data
+@Builder
 public class Film {
-    private int id;
     private String name;
+    private String releaseDate;
     private String description;
-    private LocalDate release;
-    private Duration duration;
+    private int duration;
+
+    @Builder.Default
+    private int id = 0;
+    @Builder.Default
+    private List<User> usersLiked = new ArrayList<>();
 }
