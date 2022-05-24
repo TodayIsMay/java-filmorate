@@ -1,6 +1,6 @@
 # java-filmorate
 Template repository for Filmorate project.
-![image](https://user-images.githubusercontent.com/95217085/170009213-a76bc2c0-7e99-4632-a611-4f62ddd40715.png)
+![img.png](img.png)
 
 INSERT INTO Friends (user_id, friend_id, is_accepted) VALUES (1, 2, true); - добавление в друзья
 -----------------------------------------------------------------
@@ -12,7 +12,7 @@ SELECT * FROM Film; - GET allFilms
 -----------------------------------------------------------------
 SELECT u.name 
 FROM User AS u 
-WHERE id IN (SELECT friend_id FROM Friends WHERE friend_id = u.id); = u.id); - список друзей, общих с другим пользователем
+WHERE id IN (SELECT friend_id FROM Friends WHERE friend_id = u.id); - список друзей, общих с другим пользователем
 -----------------------------------------------------------------
 INSERT INTO Likes (film_id, user_id) VALUES (1, 2); - добавление лайка
 -----------------------------------------------------------------
