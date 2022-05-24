@@ -36,6 +36,7 @@ public class UserService {
         } else {
             friendsFriends = friend.getFriends();
         }
+        friendsFriends.add(user);
         friend.setFriends(friendsFriends);
     }
 
@@ -54,6 +55,9 @@ public class UserService {
         User user = userStorage.getUserById(id);
         User otherUser = userStorage.getUserById(otherId);
         List<User> commonFriends = new ArrayList<>();
+        if (user.getFriends() == null || otherUser.getFriends() == null) {
+            return commonFriends;
+        }
         for (User userFriend : user.getFriends()) {
             for (User otherUserFriend : otherUser.getFriends()) {
                 if (userFriend.equals(otherUserFriend)) {

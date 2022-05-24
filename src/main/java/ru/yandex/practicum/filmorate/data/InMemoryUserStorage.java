@@ -21,7 +21,7 @@ public class InMemoryUserStorage implements UserStorage{
      * @throws IllegalArgumentException if there is an incorrect user data
      */
     public void createUser(User user) throws EntityIsAlreadyExistException {
-        if (user.getName() == null) {
+        if (user.getName() == null || user.getName().isEmpty() || user.getName().isBlank()) {
             user.setName(user.getLogin());
             log.info("В качестве имени пользователя использован логин");
         }
@@ -51,7 +51,7 @@ public class InMemoryUserStorage implements UserStorage{
             log.error("Неорректные данные пользователя");
             throw new IllegalArgumentException("Некорректные данные пользователя");
         } else if (!users.containsKey(id)) {
-            throw new NullPointerException("Пользователь с таким логином не зарегестрирован!");
+            throw new NoSuchElementException("Пользователь с таким логином не зарегестрирован!");
         } else {
             users.replace(id, user);
         }
