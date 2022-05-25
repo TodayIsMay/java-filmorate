@@ -1,6 +1,6 @@
 # java-filmorate
 Template repository for Filmorate project.
-![img.png](img.png)
+![img_1.png](img_1.png)
 
 INSERT INTO Friends (user_id, friend_id, is_accepted) VALUES (1, 2, true); - добавление в друзья
 -----------------------------------------------------------------
