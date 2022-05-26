@@ -34,13 +34,15 @@ public class InMemoryFilmStorage implements FilmStorage{
      * @param film Update information
      * @throws IllegalArgumentException
      */
-    public void updateFilm(int id, Film film) throws IllegalArgumentException {
-        if (id < 0) {
+    public void updateFilm(int id, Film film) throws IllegalArgumentException, NoSuchElementException {
+        if (!ValidationUtils.isValidId(id)) {
             log.error("Некорректный ID");
-            throw new IllegalArgumentException("Некорректный ID");
+            throw new NoSuchElementException("Некорректный ID");
         } else if (!ValidationUtils.isValidFilm(film)) {
             log.error("Некорректные данные фильма");
             throw new IllegalArgumentException("Некорректные данные фильма!");
+        } else if (!films.containsKey(id)) {
+            throw new NoSuchElementException("Фильм с таким ID не найден!");
         } else {
             log.info("Фильм обновлён");
             films.replace(id, film);

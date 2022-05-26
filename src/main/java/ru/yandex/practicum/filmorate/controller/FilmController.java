@@ -36,7 +36,7 @@ public class FilmController {
     }
 
     @PutMapping
-    public Film updateFilm(@RequestBody Film film) throws IllegalArgumentException {
+    public Film updateFilm(@RequestBody Film film) throws IllegalArgumentException, NoSuchElementException {
         filmStorage.updateFilm(film.getId(), film);
         return film;
     }

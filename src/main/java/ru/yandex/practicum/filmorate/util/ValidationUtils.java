@@ -28,7 +28,8 @@ public class ValidationUtils {
             return false;
         } else if (film.getDuration() < 0) {
             return false;
-        } else if (film.getDescription().isBlank() || film.getDescription().isEmpty()) {
+        } else if (film.getDescription().isBlank() || film.getDescription().isEmpty() ||
+                film.getDescription().length() > 200) {
             return false;
         }
         return true;

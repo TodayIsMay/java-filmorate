@@ -1,5 +1,6 @@
 package ru.yandex.practicum.filmorate.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
 
@@ -17,6 +18,7 @@ public class User {
 
     @Builder.Default
     private int id = 0;
+    @JsonIgnore
     @Builder.Default
     private List<User> friends = new ArrayList<>();
 }
